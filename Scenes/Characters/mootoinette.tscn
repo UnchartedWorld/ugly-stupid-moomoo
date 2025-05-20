@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://35kg5qy44rhe"]
+
+[ext_resource type="Script" uid="uid://bbruslgc7rar3" path="res://Scripts/Characters/Base Classes/NPCCharacter.cs" id="1_8slat"]
+[ext_resource type="Texture2D" uid="uid://kervt67ivd0" path="res://Assets/Characters/Mootoinette-Overworld/Mootoinette-Overworld.png" id="1_bc5pn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8slat"]
+atlas = ExtResource("1_bc5pn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0ke0"]
+atlas = ExtResource("1_bc5pn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2jfi"]
+atlas = ExtResource("1_bc5pn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6riel"]
+atlas = ExtResource("1_bc5pn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wjixg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8slat")
+}],
+"loop": true,
+"name": &"lookDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0ke0")
+}],
+"loop": true,
+"name": &"lookLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2jfi")
+}],
+"loop": true,
+"name": &"lookRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6riel")
+}],
+"loop": true,
+"name": &"lookUp",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rar2s"]
+size = Vector2(20, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8slat"]
+radius = 88.0909
+
+[node name="Mootoinette" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_8slat")
+AnimatedSpritePath = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wjixg")
+animation = &"lookUp"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_rar2s")
+
+[node name="FaceDetectionRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FaceDetectionRadius"]
+shape = SubResource("CircleShape2D_8slat")
+debug_color = Color(0.92549, 0.0156863, 0, 0.14902)

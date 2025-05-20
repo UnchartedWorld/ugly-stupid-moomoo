@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvwe84qcpmyu5"]
+
+[ext_resource type="Script" uid="uid://b8b43erq3m2rq" path="res://Scripts/Characters/MooLinh.cs" id="1_avu5l"]
+
+[node name="MooLinh" type="CharacterBody2D"]
+script = ExtResource("1_avu5l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
