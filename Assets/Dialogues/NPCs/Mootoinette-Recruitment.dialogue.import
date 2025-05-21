@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://knju2e0dijj0"
+path="res://.godot/imported/Mootoinette-Recruitment.dialogue-be7f69a216c7b138d2f664bd95c4df6b.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogues/NPCs/Mootoinette-Recruitment.dialogue"
+dest_files=["res://.godot/imported/Mootoinette-Recruitment.dialogue-be7f69a216c7b138d2f664bd95c4df6b.tres"]
+
+[params]
+
+defaults=true

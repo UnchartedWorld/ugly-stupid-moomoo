@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://o3mehxu8rfv3"
+path="res://.godot/imported/MooJeff-Recruitment.dialogue-69e4de673a6eafa8121aad161b4bdb03.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogues/NPCs/MooJeff-Recruitment.dialogue"
+dest_files=["res://.godot/imported/MooJeff-Recruitment.dialogue-69e4de673a6eafa8121aad161b4bdb03.tres"]
+
+[params]
+
+defaults=true

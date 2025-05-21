@@ -1,0 +1,21 @@
+~ start
+Mootoinette: [#Angry]Hello mother. As you can see, the [shake rate=20 level=10]MEN[/shake] get all the large houses, and I, as a hard-working woman, get the [shake rate=20 level=10]SCRAPS[/shake].
+Linh: [#Neutral]But MooJeff isn't a man- whatever, that's not the point. What even happened here?
+Mootoinette: [#Angry]Before father disappeared, he left money for all 3 of us to build our own homes. It was supposed to be equal - first good idea a man has ever come up with. However... [shake rate=20 level=10]MOOMOO[/shake] ruined it all!
+Mootoinette: [#Angry]He made himself the largest house in town, then gave MooJeff the second largest. Why? Because he "[i]thought it would be funny[/i]".
+Mootoinette: [#Angry]I work so hard making honey for the Strawberry Cow Conclave, and I have to sleep in a tiny little house. I have to carry everything around - Moomoo has a wheelbarrow that I could use, but god forbid he considers someone else-
+Linh: [#Neutral]Okay okay, I get it. Moomoo has been very naughty and unfair to a lot of people. I want to find him and bring him home. That and the Moomalian High Council said he's starting up another regime, so I don't really have a choice.
+Mootoinette: [#Neutral]I'd make fun of you for not being a [i]true[/i] independent woman, but frankly, I want to kick Moomoo's face in. Can I join you?
+
+- Recruit Mootoinette
+	Mootoinette: [#Happy][shake rate=20 level=10][speed=0.5]DOWN WITH MEN! DOWN WITH MEN! DOWN WITH MEN![/shake]
+	Linh: [#Neutral]Uh...let's calm it down a little, okay?
+	Mootoinette: [#Angry]Sorry mother. I will focus my [shake rate=20 level=10]RAGE[/shake] towards that [shake rate=20 level=10]YELLOW BASTARD[/shake]!
+	
+	Mootoinette has joined your party!
+- Recruit Mootoinette, but with less passion
+	Mootoinette: [#Happy]As the representative of the Strawberry Cow Conclave, I will stop Moomoo and show that us Strawberry cows can, in fact, handle ourselves.
+	Linh: [#Happy]Hell yeah, let's do this!
+	
+	Mootoinette has joined your party!
+=> END
