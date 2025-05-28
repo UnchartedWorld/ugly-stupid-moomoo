@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv4284tjt0da7"]
+
+[ext_resource type="Texture2D" uid="uid://b8lnilm3tcb6j" path="res://Assets/UI/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-013.png" id="1_r2mbb"]
+[ext_resource type="Texture2D" uid="uid://cpca7o5m6xr53" path="res://Assets/UI/kenney_game-icons/PNG/White/1x/warning.png" id="2_vjvo4"]
+[ext_resource type="FontFile" uid="uid://bipdvekga6yns" path="res://Assets/Fonts/Grenze-Regular.ttf" id="3_vjvo4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rxblm"]
+texture = ExtResource("1_r2mbb")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="InventoryItemRow" type="Control"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 306.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rxblm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 4.0
+offset_right = -27.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemIcon" type="TextureRect" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_vjvo4")
+
+[node name="ItemName" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_vjvo4")
+text = "ItemName:"
+
+[node name="Quantity" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("3_vjvo4")
+text = "1"
+horizontal_alignment = 2

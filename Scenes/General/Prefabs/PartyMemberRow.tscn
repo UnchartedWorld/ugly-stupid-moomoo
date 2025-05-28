@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://dup6uq7so8b8m"]
+
+[ext_resource type="Script" uid="uid://ctya7616qv2ta" path="res://Scenes/General/Prefabs/PartyMemberRow.cs" id="1_4turq"]
+[ext_resource type="Texture2D" uid="uid://bj1sason03lo" path="res://Assets/UI/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-021.png" id="1_rvpf2"]
+[ext_resource type="Texture2D" uid="uid://c63dvqw7gwvs1" path="res://Assets/UI/kenney_game-icons/PNG/White/1x/cross.png" id="2_rvpf2"]
+[ext_resource type="FontFile" uid="uid://bipdvekga6yns" path="res://Assets/Fonts/Grenze-Regular.ttf" id="3_mjwo7"]
+[ext_resource type="FontFile" uid="uid://qkiuhwiqq4pj" path="res://Assets/Fonts/Grenze-Black.ttf" id="4_wfbws"]
+[ext_resource type="FontFile" uid="uid://rvdmfkj0eo8" path="res://Assets/Fonts/Grenze-Bold.ttf" id="5_0ja3a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rxblm"]
+texture = ExtResource("1_rvpf2")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="InventoryItemRow" type="Control" node_paths=PackedStringArray("characterPortrait", "characterName", "HPLabel", "MMPLabel")]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_bottom = 64.0
+size_flags_vertical = 3
+script = ExtResource("1_4turq")
+characterPortrait = NodePath("Panel/HBoxContainer/TextureRect")
+characterName = NodePath("Panel/HBoxContainer/VBoxContainer/CharacterName")
+HPLabel = NodePath("Panel/HBoxContainer/VBoxContainer/GridContainer/HealthPoints")
+MMPLabel = NodePath("Panel/HBoxContainer/VBoxContainer/GridContainer/MooMooPoints")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(370, 128)
+layout_mode = 1
+offset_right = 370.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rxblm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 21.0
+offset_right = -23.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_rvpf2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterName" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_wfbws")
+theme_override_font_sizes/font_size = 20
+text = "Person"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="HealthPointsLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_0ja3a")
+theme_override_font_sizes/font_size = 18
+text = "HP:"
+
+[node name="HealthPoints" type="RichTextLabel" parent="Panel/HBoxContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("3_mjwo7")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "XX/XXXX"
+fit_content = true
+
+[node name="MoomooPointLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_0ja3a")
+theme_override_font_sizes/font_size = 18
+text = "MMP:"
+
+[node name="MooMooPoints" type="RichTextLabel" parent="Panel/HBoxContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_mjwo7")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "XX/XXXX"
+fit_content = true
