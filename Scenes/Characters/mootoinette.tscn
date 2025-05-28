@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://35kg5qy44rhe"]
+[gd_scene load_steps=12 format=3 uid="uid://35kg5qy44rhe"]
 
 [ext_resource type="Script" uid="uid://bbruslgc7rar3" path="res://Scripts/Characters/Base Classes/NPCCharacter.cs" id="1_8slat"]
 [ext_resource type="Texture2D" uid="uid://kervt67ivd0" path="res://Assets/Characters/Mootoinette-Overworld/Mootoinette-Overworld.png" id="1_bc5pn"]
+[ext_resource type="PackedScene" uid="uid://ckuixmfxatdt0" path="res://Scenes/General/Overhead-Popup/InteractPrompt.tscn" id="3_k0ke0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8slat"]
 atlas = ExtResource("1_bc5pn")
@@ -60,6 +61,9 @@ size = Vector2(20, 11)
 [sub_resource type="CircleShape2D" id="CircleShape2D_8slat"]
 radius = 88.0909
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2jfi"]
+size = Vector2(32, 39)
+
 [node name="Mootoinette" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_8slat")
@@ -78,3 +82,16 @@ shape = SubResource("RectangleShape2D_rar2s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FaceDetectionRadius"]
 shape = SubResource("CircleShape2D_8slat")
 debug_color = Color(0.92549, 0.0156863, 0, 0.14902)
+
+[node name="InteractionBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_y2jfi")
+debug_color = Color(0.781154, 0.124506, 1, 0.42)
+
+[node name="InteractPrompt" parent="." instance=ExtResource("3_k0ke0")]
+offset_left = -61.0
+offset_top = -60.0
+offset_right = -61.0
+offset_bottom = -60.0

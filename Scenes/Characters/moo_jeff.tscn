@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgyx1yjfflfkq"]
+[gd_scene load_steps=12 format=3 uid="uid://dgyx1yjfflfkq"]
 
 [ext_resource type="Script" uid="uid://bbruslgc7rar3" path="res://Scripts/Characters/Base Classes/NPCCharacter.cs" id="1_t0bs0"]
 [ext_resource type="Texture2D" uid="uid://dkesk13u0sfai" path="res://Assets/Characters/MooJeff-Overworld/MooJeff-Overworld.png" id="1_yfix3"]
+[ext_resource type="PackedScene" uid="uid://ckuixmfxatdt0" path="res://Scenes/General/Overhead-Popup/InteractPrompt.tscn" id="3_v7087"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0bs0"]
 atlas = ExtResource("1_yfix3")
@@ -60,6 +61,9 @@ size = Vector2(20, 11)
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0bs0"]
 radius = 88.0909
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7ky3"]
+size = Vector2(32, 39)
+
 [node name="MooJeff" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_t0bs0")
@@ -78,3 +82,16 @@ shape = SubResource("RectangleShape2D_l4u0d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FaceDetectionRadius"]
 shape = SubResource("CircleShape2D_t0bs0")
 debug_color = Color(0.92549, 0.0156863, 0, 0.14902)
+
+[node name="InteractionBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_i7ky3")
+debug_color = Color(0.781154, 0.124506, 1, 0.42)
+
+[node name="InteractPrompt" parent="." instance=ExtResource("3_v7087")]
+offset_left = -64.0
+offset_top = -62.0
+offset_right = -64.0
+offset_bottom = -62.0
