@@ -1,8 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqdhj3d0najcf"]
+[gd_scene load_steps=17 format=3 uid="uid://dqdhj3d0najcf"]
 
 [ext_resource type="Script" uid="uid://bskj0ilgih5hr" path="res://UI/DialogueUI/DialogueBalloon.cs" id="1_67l2p"]
+[ext_resource type="Texture2D" uid="uid://3djd8r4yqsf2" path="res://Assets/UI/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png" id="2_1v7jy"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="FontFile" uid="uid://bipdvekga6yns" path="res://Assets/Fonts/Grenze-Regular.ttf" id="2_fpwmr"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="Texture2D" uid="uid://dsscl8v8w3upr" path="res://Assets/UI/kenney_fantasy-ui-borders/PNG/Default/Border/panel-border-013.png" id="3_hrpmg"]
+[ext_resource type="FontFile" uid="uid://c11usub4pa44f" path="res://Assets/Fonts/Grenze-Italic.ttf" id="5_6a3kj"]
+[ext_resource type="FontFile" uid="uid://bwdr2kuhq7crg" path="res://Assets/Fonts/Grenze-BoldItalic.ttf" id="6_lksfd"]
+[ext_resource type="FontFile" uid="uid://rvdmfkj0eo8" path="res://Assets/Fonts/Grenze-Bold.ttf" id="7_bu3hk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -53,6 +59,7 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
 default_font_size = 20
+Button/fonts/font = ExtResource("2_fpwmr")
 Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
 Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
 Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
@@ -62,6 +69,21 @@ MarginContainer/constants/margin_left = 30
 MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 30
 Panel/styles/panel = SubResource("StyleBoxFlat_uy0d5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hrpmg"]
+texture = ExtResource("2_1v7jy")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fpwmr"]
+texture = ExtResource("3_hrpmg")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
 
 [node name="Balloon" type="CanvasLayer"]
 layer = 100
@@ -91,6 +113,7 @@ offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_hrpmg")
 
 [node name="Dialogue" type="MarginContainer" parent="Balloon/Panel"]
 layout_mode = 1
@@ -109,6 +132,15 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
+[node name="Panel" type="Panel" parent="Balloon/Panel/Dialogue/HBoxContainer/CharacterPortrait"]
+z_index = 1
+z_as_relative = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 104.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_fpwmr")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -118,6 +150,10 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_fpwmr")
+theme_override_fonts/italics_font = ExtResource("5_6a3kj")
+theme_override_fonts/bold_italics_font = ExtResource("6_lksfd")
+theme_override_fonts/bold_font = ExtResource("7_bu3hk")
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -127,6 +163,10 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_fpwmr")
+theme_override_fonts/italics_font = ExtResource("5_6a3kj")
+theme_override_fonts/bold_italics_font = ExtResource("6_lksfd")
+theme_override_fonts/bold_font = ExtResource("7_bu3hk")
 text = "Dialogue..."
 
 [node name="Responses" type="MarginContainer" parent="Balloon"]
