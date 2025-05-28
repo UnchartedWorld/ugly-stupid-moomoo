@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=4 uid="uid://l6ibl0agbecf"]
+[gd_scene load_steps=25 format=4 uid="uid://l6ibl0agbecf"]
 
 [ext_resource type="Texture2D" uid="uid://dpcylf44qttsw" path="res://Assets/Maps/kenney_tiny-town/Tilemap/tilemap.png" id="1_rfr5a"]
 [ext_resource type="Texture2D" uid="uid://b5fp8avsftw7k" path="res://Assets/Maps/kenney_roguelike-caves-dungeons/Spritesheet/roguelikeDungeon_transparent.png" id="1_stedw"]
+[ext_resource type="Script" uid="uid://0bnrv22s768j" path="res://Scenes/Levels/StartingZone.cs" id="1_u2tvh"]
 [ext_resource type="Texture2D" uid="uid://dkqcke18apvxg" path="res://Assets/Maps/kenney_roguelike-indoors/Tilesheets/roguelikeIndoor_transparent.png" id="2_0rpjk"]
 [ext_resource type="Texture2D" uid="uid://dt6fhfv8rfawj" path="res://Assets/Maps/kenney_roguelike-rpg-pack/Spritesheet/roguelikeSheet_transparent.png" id="3_rfr5a"]
 [ext_resource type="PackedScene" uid="uid://c6e14t1dsqexp" path="res://Scenes/Characters/player.tscn" id="4_0rpjk"]
@@ -5398,6 +5399,7 @@ ease = 2
 
 [node name="Starting Zone" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_u2tvh")
 metadata/_edit_horizontal_guides_ = [1600.0, 1079.0, 486.0]
 metadata/_edit_vertical_guides_ = [2401.0, 787.0, 1718.0]
 
@@ -5448,6 +5450,7 @@ position = Vector2(1325, 795)
 physics_interpolation_mode = 1
 position = Vector2(1325, 795)
 zoom = Vector2(5, 5)
+process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
