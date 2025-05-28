@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://8i8xc2m60iql"]
+
+[ext_resource type="Script" uid="uid://dm1xt4xvnlepb" path="res://Scenes/Main/GameUI.cs" id="1_mvwky"]
+[ext_resource type="PackedScene" uid="uid://b3kygcylj7q1c" path="res://Scenes/General/Menus/PauseMenu.tscn" id="2_0xybc"]
+[ext_resource type="PackedScene" uid="uid://crqoksc7s3i4q" path="res://Scenes/General/Menus/PartyMenu.tscn" id="3_b0kt4"]
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_mvwky")
+PauseMenuScene = ExtResource("2_0xybc")
+PartyMenuScene = ExtResource("3_b0kt4")
+
+[node name="UIRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
