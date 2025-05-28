@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://t3ga3ulvwduq"]
+
+[ext_resource type="Texture2D" uid="uid://cqq8j41s8vat5" path="res://Assets/UI/kenney_fantasy-ui-borders/PNG/Double/Panel/panel-007.png" id="1_acuib"]
+[ext_resource type="FontFile" uid="uid://bipdvekga6yns" path="res://Assets/Fonts/Grenze-Regular.ttf" id="1_ihy3d"]
+[ext_resource type="Texture2D" uid="uid://dmhj03glv0tkp" path="res://Assets/UI/kenney_fantasy-ui-borders/PNG/Double/Transparent border/panel-transparent-border-007.png" id="1_kk36j"]
+[ext_resource type="Texture2D" uid="uid://be61a20uiibod" path="res://Assets/UI/kenney_fantasy-ui-borders/PNG/Double/Border/panel-border-007.png" id="1_vmo38"]
+[ext_resource type="Texture2D" uid="uid://cpp58eduaateg" path="res://Assets/UI/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-007.png" id="2_acuib"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dr1n6"]
+texture = ExtResource("1_kk36j")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0, 0, 0, 0.529412)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_togae"]
+texture = ExtResource("1_acuib")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kk36j"]
+texture = ExtResource("2_acuib")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ihy3d"]
+texture = ExtResource("1_vmo38")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p1h3p"]
+texture = ExtResource("2_acuib")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[resource]
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_ihy3d")
+Button/styles/disabled = SubResource("StyleBoxTexture_dr1n6")
+Button/styles/focus = SubResource("StyleBoxTexture_togae")
+Button/styles/hover = SubResource("StyleBoxTexture_kk36j")
+Button/styles/normal = SubResource("StyleBoxTexture_ihy3d")
+Button/styles/pressed = SubResource("StyleBoxTexture_p1h3p")
