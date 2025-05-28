@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://b0xs68cjsj520"]
+
+[ext_resource type="Script" uid="uid://dnt0dvxfubmmn" path="res://Scripts/Resources/Classes/SkillResource.cs" id="1_g3x43"]
+[ext_resource type="Resource" uid="uid://bgjsttiowcltt" path="res://Scripts/Resources/Skills/Slap.tres" id="2_g7i8o"]
+[ext_resource type="Script" uid="uid://deovu2pt62jxi" path="res://Scripts/Resources/Classes/CharacterResource.cs" id="2_xih27"]
+
+[resource]
+script = ExtResource("2_xih27")
+CharacterName = "Linh"
+MaxHealth = 300
+MaxMoomooPoints = 100
+Attack = 30
+Defense = 30
+Agility = 10
+StartingSkills = Array[ExtResource("1_g3x43")]([ExtResource("2_g7i8o")])
+metadata/_custom_type_script = "uid://deovu2pt62jxi"

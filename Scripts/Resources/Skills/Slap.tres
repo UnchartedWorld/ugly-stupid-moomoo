@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=2 format=3 uid="uid://bgjsttiowcltt"]
+
+[ext_resource type="Script" uid="uid://dnt0dvxfubmmn" path="res://Scripts/Resources/Classes/SkillResource.cs" id="1_2pavd"]
+
+[resource]
+script = ExtResource("1_2pavd")
+SkillName = "Slap"
+BaseDamage = 30
+Element = 0
+MMPCost = 0
+isHealing = false
+metadata/_custom_type_script = "uid://dnt0dvxfubmmn"
