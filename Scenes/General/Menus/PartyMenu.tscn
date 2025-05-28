@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://crqoksc7s3i4q"]
+
+[ext_resource type="Script" uid="uid://ci7shtkq7hkd2" path="res://Scenes/General/Menus/PartyMenu.cs" id="1_kie7c"]
+[ext_resource type="PackedScene" uid="uid://dup6uq7so8b8m" path="res://Scenes/General/Prefabs/PartyMemberRow.tscn" id="2_ewy7w"]
+[ext_resource type="Texture2D" uid="uid://ba22qpkqw1nvy" path="res://Assets/UI/kenney_game-icons/PNG/White/2x/arrowLeft.png" id="3_dqo0b"]
+[ext_resource type="Theme" uid="uid://t3ga3ulvwduq" path="res://UI/Asset-Themes/button_theme.tres" id="3_mpjfw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpjfw"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 0.839216)
+
+[node name="PartyMenu" type="Control" node_paths=PackedStringArray("CardContainer")]
+process_mode = 2
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_kie7c")
+CardContainer = NodePath("MarginContainer/ScrollContainer/HFlowContainer")
+PartyCardScene = ExtResource("2_ewy7w")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_mpjfw")
+
+[node name="BackButton" type="Button" parent="."]
+unique_name_in_owner = true
+z_index = 1
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 1
+offset_right = 224.0
+offset_bottom = 164.0
+theme = ExtResource("3_mpjfw")
+text = "Back"
+icon = ExtResource("3_dqo0b")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 30
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
