@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=2 format=3 uid="uid://c8vnqlvcpkkdi"]
+
+[ext_resource type="Script" uid="uid://dnt0dvxfubmmn" path="res://Scripts/Resources/Classes/SkillResource.cs" id="1_jqcwa"]
+
+[resource]
+script = ExtResource("1_jqcwa")
+SkillName = "The Law"
+BaseDamage = 100
+Element = 0
+MMPCost = 80
+isHealing = false
+TargetType = 0
+metadata/_custom_type_script = "uid://dnt0dvxfubmmn"

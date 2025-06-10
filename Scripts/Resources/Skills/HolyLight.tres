@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=2 format=3 uid="uid://j2654ldr8r1w"]
+
+[ext_resource type="Script" uid="uid://dnt0dvxfubmmn" path="res://Scripts/Resources/Classes/SkillResource.cs" id="1_bpmx2"]
+
+[resource]
+script = ExtResource("1_bpmx2")
+SkillName = "Purging Light of Moomalia"
+BaseDamage = 60
+Element = 1
+MMPCost = 40
+isHealing = false
+TargetType = 1
+metadata/_custom_type_script = "uid://dnt0dvxfubmmn"

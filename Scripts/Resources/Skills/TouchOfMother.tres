@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=2 format=3 uid="uid://dcgyp0apskj71"]
+
+[ext_resource type="Script" uid="uid://dnt0dvxfubmmn" path="res://Scripts/Resources/Classes/SkillResource.cs" id="1_bs3gh"]
+
+[resource]
+script = ExtResource("1_bs3gh")
+SkillName = "A Mother's Touch"
+BaseDamage = 0
+Element = 1
+MMPCost = 40
+isHealing = true
+healAmount = 50
+TargetType = 3
+metadata/_custom_type_script = "uid://dnt0dvxfubmmn"

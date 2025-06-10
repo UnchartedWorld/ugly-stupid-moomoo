@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=2 format=3 uid="uid://blk1e8rrsylm3"]
+
+[ext_resource type="Script" uid="uid://dnt0dvxfubmmn" path="res://Scripts/Resources/Classes/SkillResource.cs" id="1_luwtv"]
+
+[resource]
+script = ExtResource("1_luwtv")
+SkillName = "Bed of Apple Chaos"
+BaseDamage = 65
+Element = 2
+MMPCost = 35
+isHealing = false
+TargetType = 1
+metadata/_custom_type_script = "uid://dnt0dvxfubmmn"

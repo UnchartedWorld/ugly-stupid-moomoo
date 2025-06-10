@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_2pavd")
 SkillName = "Slap"
-BaseDamage = 30
+BaseDamage = 20
 Element = 0
 MMPCost = 0
 isHealing = false
+TargetType = 0
 metadata/_custom_type_script = "uid://dnt0dvxfubmmn"

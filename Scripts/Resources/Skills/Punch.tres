@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=2 format=3 uid="uid://gnupsymn8m1y"]
+
+[ext_resource type="Script" uid="uid://dnt0dvxfubmmn" path="res://Scripts/Resources/Classes/SkillResource.cs" id="1_3gfu0"]
+
+[resource]
+script = ExtResource("1_3gfu0")
+SkillName = "Punch"
+BaseDamage = 30
+Element = 0
+MMPCost = 0
+isHealing = false
+TargetType = 0
+metadata/_custom_type_script = "uid://dnt0dvxfubmmn"
