@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmmis7c4gq5cg"]
+
+[ext_resource type="Texture2D" uid="uid://d4lmqw138sbpj" path="res://Assets/UI/kenney_fantasy-ui-borders/PNG/Double/Panel/panel-005.png" id="1_7fd6u"]
+[ext_resource type="Script" uid="uid://c4nfar8nx1f3c" path="res://Scenes/Battle/Prefabs/PlayerCommandMenu.cs" id="1_7jcpg"]
+[ext_resource type="Theme" uid="uid://h8885m7wb82u" path="res://UI/Asset-Themes/small_button_theme.tres" id="2_ys8d6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ys8d6"]
+texture = ExtResource("1_7fd6u")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+
+[node name="PlayerCommandMenu" type="Control" node_paths=PackedStringArray("AttackButton", "SkillButton", "BlockButton")]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+script = ExtResource("1_7jcpg")
+AttackButton = NodePath("VBoxContainer/MarginContainer/AttackButton")
+SkillButton = NodePath("VBoxContainer/MarginContainer2/SkillButton")
+BlockButton = NodePath("VBoxContainer/MarginContainer4/BlockButton")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(273, 296)
+layout_mode = 0
+offset_left = -6.0
+offset_top = -16.0
+offset_right = 267.0
+offset_bottom = 280.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ys8d6")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 262.0
+offset_bottom = 228.0
+theme_override_constants/separation = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="AttackButton" type="Button" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../MarginContainer4/BlockButton")
+theme = ExtResource("2_ys8d6")
+text = "Attack"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="SkillButton" type="Button" parent="VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+theme = ExtResource("2_ys8d6")
+text = "Skill"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="ItemButton" type="Button" parent="VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+theme = ExtResource("2_ys8d6")
+text = "Items"
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="BlockButton" type="Button" parent="VBoxContainer/MarginContainer4"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../MarginContainer/AttackButton")
+theme = ExtResource("2_ys8d6")
+text = "Block"
