@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=3 format=3 uid="uid://y3k07qh5qd3c"]
+
+[ext_resource type="Script" uid="uid://deovu2pt62jxi" path="res://Scripts/Resources/Classes/CharacterResource.cs" id="1_nm0ma"]
+[ext_resource type="Script" uid="uid://dnt0dvxfubmmn" path="res://Scripts/Resources/Classes/SkillResource.cs" id="1_uwn7g"]
+
+[resource]
+script = ExtResource("1_nm0ma")
+CharacterName = "MooJeff"
+MaxHealth = 400
+MaxMoomooPoints = 350
+Attack = 30
+Defense = 30
+Agility = 15
+StartingSkills = Array[ExtResource("1_uwn7g")]([])
+Resistances = Dictionary[int, float]({
+0: 1.0,
+1: 1.5,
+2: 0.5,
+3: 1.0,
+4: 2.0
+})
+metadata/_custom_type_script = "uid://deovu2pt62jxi"

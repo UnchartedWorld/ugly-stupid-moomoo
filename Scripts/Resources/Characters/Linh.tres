@@ -13,4 +13,11 @@ Attack = 30
 Defense = 30
 Agility = 10
 StartingSkills = Array[ExtResource("1_g3x43")]([ExtResource("2_g7i8o")])
+Resistances = Dictionary[int, float]({
+0: 1.0,
+1: 1.0,
+2: 1.0,
+3: 1.5,
+4: 0.2
+})
 metadata/_custom_type_script = "uid://deovu2pt62jxi"

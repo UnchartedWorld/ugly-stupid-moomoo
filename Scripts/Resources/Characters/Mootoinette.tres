@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=3 format=3 uid="uid://cf2qxedgsgunq"]
+
+[ext_resource type="Script" uid="uid://dnt0dvxfubmmn" path="res://Scripts/Resources/Classes/SkillResource.cs" id="1_321ub"]
+[ext_resource type="Script" uid="uid://deovu2pt62jxi" path="res://Scripts/Resources/Classes/CharacterResource.cs" id="3_j3rse"]
+
+[resource]
+script = ExtResource("3_j3rse")
+CharacterName = "Mootoinette"
+MaxHealth = 200
+MaxMoomooPoints = 200
+Attack = 20
+Defense = 40
+Agility = 20
+StartingSkills = Array[ExtResource("1_321ub")]([])
+Resistances = Dictionary[int, float]({
+0: 1.0,
+1: 1.5,
+2: 0.5,
+3: 1.5,
+4: 2.0
+})
+metadata/_custom_type_script = "uid://deovu2pt62jxi"

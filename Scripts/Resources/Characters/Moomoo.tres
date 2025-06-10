@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=6 format=3 uid="uid://dvform022y1pc"]
+
+[ext_resource type="Script" uid="uid://dnt0dvxfubmmn" path="res://Scripts/Resources/Classes/SkillResource.cs" id="1_cygte"]
+[ext_resource type="Script" uid="uid://deovu2pt62jxi" path="res://Scripts/Resources/Classes/CharacterResource.cs" id="2_n67ob"]
+[ext_resource type="Resource" uid="uid://gnupsymn8m1y" path="res://Scripts/Resources/Skills/Punch.tres" id="2_r2we5"]
+[ext_resource type="Resource" uid="uid://dcgyp0apskj71" path="res://Scripts/Resources/Skills/TouchOfMother.tres" id="3_enl4h"]
+[ext_resource type="Resource" uid="uid://blk1e8rrsylm3" path="res://Scripts/Resources/Skills/BedOfAppleChaos.tres" id="4_y50c0"]
+
+[resource]
+script = ExtResource("2_n67ob")
+CharacterName = "Moomoo"
+MaxHealth = 1000
+MaxMoomooPoints = 200
+Attack = 40
+Defense = 60
+Agility = 3
+StartingSkills = Array[ExtResource("1_cygte")]([ExtResource("2_r2we5"), ExtResource("3_enl4h"), ExtResource("4_y50c0")])
+Resistances = Dictionary[int, float]({
+0: 1.0,
+1: 2.0,
+2: 0.2,
+3: 3.0,
+4: 1.5
+})
+metadata/_custom_type_script = "uid://deovu2pt62jxi"
