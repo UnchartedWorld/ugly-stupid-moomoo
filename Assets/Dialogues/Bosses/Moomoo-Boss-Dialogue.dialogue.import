@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://n5be65dskey"
+path="res://.godot/imported/Moomoo-Boss-Dialogue.dialogue-3faa0babff1ed99aebf9704b216d4f20.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogues/Bosses/Moomoo-Boss-Dialogue.dialogue"
+dest_files=["res://.godot/imported/Moomoo-Boss-Dialogue.dialogue-3faa0babff1ed99aebf9704b216d4f20.tres"]
+
+[params]
+
+defaults=true

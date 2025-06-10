@@ -13,6 +13,7 @@ MooJeff: [#Angry]...How is that, in any real way, a family trip? It's your choic
 	Linh: [#Angry]MooJeff! That's not what you should do to your brother!
 	
 	MooJeff has joined your party!
+	do JoinParty()
 - Leave MooJeff alone
 	Linh: [#Neutral]I think you need some alone time.
 	

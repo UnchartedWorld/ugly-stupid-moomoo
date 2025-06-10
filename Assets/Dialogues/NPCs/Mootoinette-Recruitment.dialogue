@@ -13,9 +13,11 @@ Mootoinette: [#Neutral]I'd make fun of you for not being a [i]true[/i] independe
 	Mootoinette: [#Angry]Sorry mother. I will focus my [shake rate=20 level=10]RAGE[/shake] towards that [shake rate=20 level=10]YELLOW BASTARD[/shake]!
 	
 	Mootoinette has joined your party!
+	do JoinParty()
 - Recruit Mootoinette, but with less passion
 	Mootoinette: [#Happy]As the representative of the Strawberry Cow Conclave, I will stop Moomoo and show that us Strawberry cows can, in fact, handle ourselves.
 	Linh: [#Happy]Hell yeah, let's do this!
 	
 	Mootoinette has joined your party!
+	do JoinParty()
 => END
