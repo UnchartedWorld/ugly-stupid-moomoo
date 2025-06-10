@@ -18,7 +18,7 @@ public partial class PartyMemberRow : Control
         UpdateMMpDisplay(partyMember);
     }
 
-        private void UpdateHpDisplay(PartyMember member)
+    private void UpdateHpDisplay(PartyMember member)
     {
         float ratio = (float)member.CharacterStats.Health / member.CharacterStats.MaxHealth;
         string color = ratio <= 0.25f ? "red" : ratio <= 0.5f ? "orange" : "yellow";

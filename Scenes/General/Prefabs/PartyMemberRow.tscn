@@ -16,7 +16,7 @@ texture_margin_bottom = 32.0
 modulate_color = Color(0, 0, 0, 1)
 
 [node name="InventoryItemRow" type="Control" node_paths=PackedStringArray("characterPortrait", "characterName", "HPLabel", "MMPLabel")]
-custom_minimum_size = Vector2(0, 64)
+custom_minimum_size = Vector2(370, 128)
 layout_mode = 3
 anchors_preset = 0
 offset_bottom = 64.0
