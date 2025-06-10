@@ -12,4 +12,5 @@ public partial class CharacterResource : Resource
     [Export] public int Agility;
 
     [Export] public Godot.Collections.Array<SkillResource> StartingSkills = [];
+    [Export] public Godot.Collections.Dictionary<ElementType, float> Resistances = [];
 }
