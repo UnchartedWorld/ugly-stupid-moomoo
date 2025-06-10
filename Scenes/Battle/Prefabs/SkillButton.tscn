@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://bh4axui18i63d"]
+
+[ext_resource type="Theme" uid="uid://h8885m7wb82u" path="res://UI/Asset-Themes/small_button_theme.tres" id="1_x4dnh"]
+[ext_resource type="Script" uid="uid://hs74mg0xgt5d" path="res://Scenes/Battle/Prefabs/SkillButton.cs" id="2_2jpt2"]
+[ext_resource type="FontFile" uid="uid://bipdvekga6yns" path="res://Assets/Fonts/Grenze-Regular.ttf" id="2_ql8qr"]
+[ext_resource type="FontFile" uid="uid://c11usub4pa44f" path="res://Assets/Fonts/Grenze-Italic.ttf" id="3_2jpt2"]
+[ext_resource type="FontFile" uid="uid://bwdr2kuhq7crg" path="res://Assets/Fonts/Grenze-BoldItalic.ttf" id="4_es6p8"]
+[ext_resource type="FontFile" uid="uid://rvdmfkj0eo8" path="res://Assets/Fonts/Grenze-Bold.ttf" id="5_isi35"]
+
+[node name="SkillButton" type="Button" node_paths=PackedStringArray("_skillName", "_skillCost")]
+custom_minimum_size = Vector2(330, 60)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_right = 8.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme = ExtResource("1_x4dnh")
+script = ExtResource("2_2jpt2")
+_skillName = NodePath("HBoxContainer/MarginContainer/HBoxContainer/SkillName")
+_skillCost = NodePath("HBoxContainer/MarginContainer/HBoxContainer/MMPCostLabel")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 5
+
+[node name="SkillName" type="Label" parent="HBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(33, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Test"
+text_overrun_behavior = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="MMPCostLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(33, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("2_ql8qr")
+theme_override_fonts/italics_font = ExtResource("3_2jpt2")
+theme_override_fonts/bold_italics_font = ExtResource("4_es6p8")
+theme_override_fonts/bold_font = ExtResource("5_isi35")
+text = "5 MMP
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+horizontal_alignment = 2

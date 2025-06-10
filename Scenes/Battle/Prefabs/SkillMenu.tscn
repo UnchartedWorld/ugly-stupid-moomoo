@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://djsobb01apd4w"]
+
+[ext_resource type="Texture2D" uid="uid://d4lmqw138sbpj" path="res://Assets/UI/kenney_fantasy-ui-borders/PNG/Double/Panel/panel-005.png" id="1_8p8dt"]
+[ext_resource type="Script" uid="uid://bnyn8whlnn83g" path="res://Scenes/Battle/Prefabs/SkillMenu.cs" id="1_vbby5"]
+[ext_resource type="PackedScene" uid="uid://bh4axui18i63d" path="res://Scenes/Battle/Prefabs/SkillButton.tscn" id="2_vbby5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c0m21"]
+texture = ExtResource("1_8p8dt")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="SkillMenu" type="Control" node_paths=PackedStringArray("_skillListContainer")]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+script = ExtResource("1_vbby5")
+_skillListContainer = NodePath("Panel/ScrollContainer/MarginContainer/SkillListContainer")
+SkillButtonScene = ExtResource("2_vbby5")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(350, 296)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_c0m21")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+custom_minimum_size = Vector2(255, 240)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="SkillListContainer" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 0
