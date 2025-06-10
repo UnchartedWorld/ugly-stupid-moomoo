@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://l6ibl0agbecf"]
+[gd_scene load_steps=26 format=4 uid="uid://l6ibl0agbecf"]
 
 [ext_resource type="Texture2D" uid="uid://dpcylf44qttsw" path="res://Assets/Maps/kenney_tiny-town/Tilemap/tilemap.png" id="1_rfr5a"]
 [ext_resource type="Texture2D" uid="uid://b5fp8avsftw7k" path="res://Assets/Maps/kenney_roguelike-caves-dungeons/Spritesheet/roguelikeDungeon_transparent.png" id="1_stedw"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://35kg5qy44rhe" path="res://Scenes/Characters/mootoinette.tscn" id="5_ne7q8"]
 [ext_resource type="PackedScene" uid="uid://dgyx1yjfflfkq" path="res://Scenes/Characters/moo_jeff.tscn" id="6_gkt33"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_0x7et"]
+[ext_resource type="PackedScene" uid="uid://0djpspflyu0s" path="res://Scenes/Characters/moomoo.tscn" id="8_u2tvh"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="9_rcclx"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_u2tvh"]
 
@@ -5443,12 +5444,16 @@ position = Vector2(1450, 752)
 [node name="MooJeff" parent="InteractiveLayer" instance=ExtResource("6_gkt33")]
 position = Vector2(1111, 898)
 
+[node name="Moomoo" parent="InteractiveLayer" instance=ExtResource("8_u2tvh")]
+position = Vector2(2208, 953)
+
 [node name="Player" parent="." instance=ExtResource("4_0rpjk")]
-position = Vector2(1325, 795)
+unique_name_in_owner = true
+position = Vector2(1145, 721)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(1325, 795)
+position = Vector2(1145, 721)
 zoom = Vector2(5, 5)
 process_callback = 0
 
@@ -5459,7 +5464,7 @@ script = ExtResource("8_0x7et")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(1325, 795)
+position = Vector2(1145, 721)
 script = ExtResource("9_rcclx")
 follow_mode = 5
 follow_target = NodePath("../Player")
