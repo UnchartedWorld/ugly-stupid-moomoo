@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-public partial class Mootoinette : NPCCharacter
+public partial class MooJeff : NPCCharacter
 {
     [Export] public CharacterResource CharacterData { get; set; }
     [Export] private Resource _recruitmentDialogue;
@@ -23,12 +23,11 @@ public partial class Mootoinette : NPCCharacter
         }
     }
 
-
     public void OnInteract()
     {
         DialogueManager.ShowDialogueBalloon(_recruitmentDialogue, "start", extraGameStates: [this]);
     }
-
+    
     public async Task JoinParty()
     {
         if (CharacterData == null)
@@ -49,11 +48,11 @@ public partial class Mootoinette : NPCCharacter
                 skill.healAmount,
                 skill.TargetType
             );
-            
+
             listOfSkills.Add(translatedSkill);
         }
 
-        CharacterStats mootoinetteStats = new(
+        CharacterStats mooJeffStats = new(
             CharacterData.CharacterName,
             CharacterData.MaxHealth,
             CharacterData.MaxMoomooPoints,
@@ -63,7 +62,7 @@ public partial class Mootoinette : NPCCharacter
             CharacterData.Resistances.ToDictionary(),
             listOfSkills);
 
-        PartyManager.Instance.AddPartyMember(mootoinetteStats);
+        PartyManager.Instance.AddPartyMember(mooJeffStats);
 
         Tween tween = CreateTween();
         tween.TweenProperty(this, "modulate:a", 0, 0.5);

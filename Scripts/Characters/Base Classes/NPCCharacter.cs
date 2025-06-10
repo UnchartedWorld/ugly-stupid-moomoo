@@ -14,6 +14,7 @@ public partial class NPCCharacter : Node2D
     private Control prompt;
     private Tween tween;
     private bool playerIsInRange = false;
+    public bool PlayerIsInInteractionRange = false;
 
 
     public override void _Ready()
@@ -111,6 +112,7 @@ public partial class NPCCharacter : Node2D
             prompt.Visible = true;
             tween = CreateTween();
             tween.TweenProperty(prompt, "modulate:a", 1.0f, 0.4f);
+            PlayerIsInInteractionRange = true;
         }
     }
 
@@ -126,6 +128,7 @@ public partial class NPCCharacter : Node2D
             {
                 if (prompt.Modulate.A <= 0.01f) prompt.Visible = false;
             };
+            PlayerIsInInteractionRange = false;
         }
     }
 
