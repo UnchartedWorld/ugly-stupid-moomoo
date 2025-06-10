@@ -20,6 +20,9 @@ public class BattleCharacter
 
     public bool TakeDamage(int amount, ElementType element = ElementType.Neutral)
     {
+        // Apply defence bonus first
+        amount = (int)(amount * (1.0F - (CharacterStats.Defense / (CharacterStats.Defense + 100F))));
+
         float modifier = CharacterStats.ElementalModifiers.GetValueOrDefault(element, 1.0f);
         int damageAfterModifier = Mathf.RoundToInt(amount * modifier);
 

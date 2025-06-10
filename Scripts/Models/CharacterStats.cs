@@ -13,8 +13,17 @@ public class CharacterStats
     public int Agility;
 
     public Dictionary<ElementType, float> ElementalModifiers = [];
+    public List<Skill> CharacterSkills = [];
 
-    public CharacterStats(string name, int maxHP, int maxMMP, int attack, int defence, int agility)
+    public CharacterStats(
+        string name,
+        int maxHP,
+        int maxMMP,
+        int attack,
+        int defence,
+        int agility,
+        Dictionary<ElementType, float> resistances,
+        List<Skill> skills)
     {
         CharacterName = name;
         MaxHealth = maxHP;
@@ -24,5 +33,7 @@ public class CharacterStats
         Attack = attack;
         Defense = defence;
         Agility = agility;
+        ElementalModifiers = resistances;
+        CharacterSkills = skills;
     }
 }
