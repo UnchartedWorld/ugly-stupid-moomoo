@@ -1,0 +1,133 @@
+[gd_scene load_steps=10 format=3 uid="uid://05rqntcd5iil"]
+
+[ext_resource type="Texture2D" uid="uid://chlagl7f5ioex" path="res://Assets/UI/kenney_fantasy-ui-borders/PNG/Double/Panel/panel-030.png" id="1_bwm1p"]
+[ext_resource type="FontFile" uid="uid://bipdvekga6yns" path="res://Assets/Fonts/Grenze-Regular.ttf" id="2_10sii"]
+[ext_resource type="Script" uid="uid://covqmix3e8nfk" path="res://Scenes/Battle/Prefabs/ActorPanel.cs" id="2_sgsxv"]
+[ext_resource type="FontFile" uid="uid://rvdmfkj0eo8" path="res://Assets/Fonts/Grenze-Bold.ttf" id="3_sgsxv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7sc72"]
+texture = ExtResource("1_bwm1p")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4n4i"]
+bg_color = Color(0.051971, 0.051971, 0.0519709, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhoy6"]
+bg_color = Color(0.921569, 0.298039, 0.258824, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpkjn"]
+bg_color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o44aw"]
+bg_color = Color(0, 0.403922, 0.647059, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ActorPanel" type="Panel" node_paths=PackedStringArray("CharacterLabel", "HPProgBar", "MMPProgBar", "Outline")]
+custom_minimum_size = Vector2(300, 80)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7sc72")
+script = ExtResource("2_sgsxv")
+CharacterLabel = NodePath("MarginContainer/HBoxContainer/MarginContainer/CharacterNameLabel")
+HPProgBar = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/HPBar")
+MMPProgBar = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/MMPBar")
+Outline = NodePath("Outline")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="CharacterNameLabel" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_10sii")
+text = "Name"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_sgsxv")
+text = "HP:"
+
+[node name="HPBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_10sii")
+theme_override_styles/background = SubResource("StyleBoxFlat_d4n4i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lhoy6")
+value = 50.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="MMPLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_sgsxv")
+text = "MMP: "
+
+[node name="MMPBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_10sii")
+theme_override_styles/background = SubResource("StyleBoxFlat_rpkjn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_o44aw")
+value = 50.0
+
+[node name="Outline" type="ColorRect" parent="."]
+visible = false
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.843137, 0, 1)
