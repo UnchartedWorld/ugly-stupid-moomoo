@@ -3,7 +3,7 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-	private Movement _movement;
+	public Movement _movement;
 	private AnimationPlayer animationPlayer;
 
 	public const float ACCELERATION = 1500.0f;
