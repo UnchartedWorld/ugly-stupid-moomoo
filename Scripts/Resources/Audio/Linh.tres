@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterAudioResource" load_steps=6 format=3 uid="uid://curkcl6vd3xgd"]
+
+[ext_resource type="Script" uid="uid://dp48tog2uxuy4" path="res://Scripts/Resources/Classes/CharacterAudioResource.cs" id="1_6cil7"]
+[ext_resource type="AudioStream" uid="uid://bsicqyjukxkyd" path="res://Assets/Audio/female_standard_1.ogg" id="1_f2msu"]
+[ext_resource type="AudioStream" uid="uid://1d8uyh3w4bw3" path="res://Assets/Audio/female_standard_2.ogg" id="2_tu0ly"]
+[ext_resource type="AudioStream" uid="uid://cruyix2em20bj" path="res://Assets/Audio/female_standard_3.ogg" id="3_vu76n"]
+[ext_resource type="AudioStream" uid="uid://6s2e1jbpn7bg" path="res://Assets/Audio/female_standard_4.ogg" id="4_cokmr"]
+
+[resource]
+script = ExtResource("1_6cil7")
+CharacterName = "Linh"
+DialogueSounds = Array[AudioStream]([ExtResource("1_f2msu"), ExtResource("2_tu0ly"), ExtResource("3_vu76n"), ExtResource("4_cokmr")])
+metadata/_custom_type_script = "uid://dp48tog2uxuy4"

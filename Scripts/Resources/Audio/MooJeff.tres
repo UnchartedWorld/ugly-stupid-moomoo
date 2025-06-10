@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterAudioResource" load_steps=6 format=3 uid="uid://do7usc5w5gx7d"]
+
+[ext_resource type="Script" uid="uid://dp48tog2uxuy4" path="res://Scripts/Resources/Classes/CharacterAudioResource.cs" id="1_5r3ep"]
+[ext_resource type="AudioStream" uid="uid://dsdhw5b30toot" path="res://Assets/Audio/male_standard_1.ogg" id="1_qwchu"]
+[ext_resource type="AudioStream" uid="uid://cjt317u2s1p0e" path="res://Assets/Audio/male_standard_2.ogg" id="2_3x5nk"]
+[ext_resource type="AudioStream" uid="uid://hvt3mnhwl75m" path="res://Assets/Audio/male_standard_3.ogg" id="3_u7wl3"]
+[ext_resource type="AudioStream" uid="uid://cpku1yvbtnn4b" path="res://Assets/Audio/male_standard_4.ogg" id="4_n2ys1"]
+
+[resource]
+script = ExtResource("1_5r3ep")
+CharacterName = "MooJeff"
+DialogueSounds = Array[AudioStream]([ExtResource("1_qwchu"), ExtResource("2_3x5nk"), ExtResource("3_u7wl3"), ExtResource("4_n2ys1")])
+metadata/_custom_type_script = "uid://dp48tog2uxuy4"

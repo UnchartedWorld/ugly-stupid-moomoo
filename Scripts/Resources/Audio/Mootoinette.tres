@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterAudioResource" load_steps=6 format=3 uid="uid://dndn22atnvk8l"]
+
+[ext_resource type="Script" uid="uid://dp48tog2uxuy4" path="res://Scripts/Resources/Classes/CharacterAudioResource.cs" id="1_g77ac"]
+[ext_resource type="AudioStream" uid="uid://bhw7m5gw0o63c" path="res://Assets/Audio/female_light_1.ogg" id="1_upjk1"]
+[ext_resource type="AudioStream" uid="uid://cgthjl677mnmw" path="res://Assets/Audio/female_light_2.ogg" id="2_fvvtf"]
+[ext_resource type="AudioStream" uid="uid://be2ul87vuegys" path="res://Assets/Audio/female_light_3.ogg" id="3_tj4ak"]
+[ext_resource type="AudioStream" uid="uid://dyqrs31ehwaeg" path="res://Assets/Audio/female_light_4.ogg" id="4_78bcb"]
+
+[resource]
+script = ExtResource("1_g77ac")
+CharacterName = "Mootoinette"
+DialogueSounds = Array[AudioStream]([ExtResource("1_upjk1"), ExtResource("2_fvvtf"), ExtResource("3_tj4ak"), ExtResource("4_78bcb")])
+metadata/_custom_type_script = "uid://dp48tog2uxuy4"
