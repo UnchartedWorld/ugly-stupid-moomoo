@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmvx0wnv3t330"]
+
+[ext_resource type="Script" uid="uid://mat6e4e1vg68" path="res://Scenes/Battle/BattleUI.cs" id="1_l6h27"]
+[ext_resource type="PackedScene" uid="uid://dmmis7c4gq5cg" path="res://Scenes/Battle/Prefabs/PlayerCommandMenu.tscn" id="2_kh8es"]
+[ext_resource type="PackedScene" uid="uid://05rqntcd5iil" path="res://Scenes/Battle/Prefabs/ActorPanel.tscn" id="3_7ntly"]
+[ext_resource type="PackedScene" uid="uid://cdcq0703wgb3s" path="res://Scenes/Battle/Prefabs/EnemyBattle.tscn" id="4_66kbo"]
+[ext_resource type="PackedScene" uid="uid://b14beo6hidxfq" path="res://Scenes/Battle/Prefabs/PlayerBattle.tscn" id="5_ht8aa"]
+[ext_resource type="PackedScene" uid="uid://djsobb01apd4w" path="res://Scenes/Battle/Prefabs/SkillMenu.tscn" id="6_vysf6"]
+[ext_resource type="PackedScene" uid="uid://b53vsg87grqj3" path="res://Scenes/Battle/Prefabs/TargetSelector.tscn" id="7_ua1cf"]
+
+[node name="BattleUI" type="CanvasLayer" node_paths=PackedStringArray("CommandMenuContainer", "SkillMenuContainer", "EnemyDisplayContainer", "PartyMemberContainer", "ActorPanelContainer")]
+script = ExtResource("1_l6h27")
+CommandMenu = ExtResource("2_kh8es")
+ActorPanel = ExtResource("3_7ntly")
+BattleEnemy = ExtResource("4_66kbo")
+BattlePlayer = ExtResource("5_ht8aa")
+SkillMenu = ExtResource("6_vysf6")
+TargetSelector = ExtResource("7_ua1cf")
+CommandMenuContainer = NodePath("CommandMenuContainer")
+SkillMenuContainer = NodePath("SkillMenuContainer")
+EnemyDisplayContainer = NodePath("MarginContainer/EnemyDisplayContainer")
+PartyMemberContainer = NodePath("MarginContainer2/PartyMemberContainer")
+ActorPanelContainer = NodePath("MarginContainer3/ActorPanelContainer")
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 300.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="ActorPanelContainer" type="HBoxContainer" parent="MarginContainer3"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="CommandMenuContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(275, 300)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 0
+
+[node name="SkillMenuContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(350, 300)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 200
+
+[node name="EnemyDisplayContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 200
+
+[node name="PartyMemberContainer" type="HBoxContainer" parent="MarginContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
