@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://35kg5qy44rhe"]
+[gd_scene load_steps=14 format=3 uid="uid://35kg5qy44rhe"]
 
-[ext_resource type="Script" uid="uid://bbruslgc7rar3" path="res://Scripts/Characters/Base Classes/NPCCharacter.cs" id="1_8slat"]
 [ext_resource type="Texture2D" uid="uid://kervt67ivd0" path="res://Assets/Characters/Mootoinette-Overworld/Mootoinette-Overworld.png" id="1_bc5pn"]
+[ext_resource type="Script" uid="uid://dpyfo70brn006" path="res://Scripts/Characters/Mootoinette.cs" id="1_k0ke0"]
+[ext_resource type="Resource" uid="uid://cf2qxedgsgunq" path="res://Scripts/Resources/Characters/Mootoinette.tres" id="2_y2jfi"]
+[ext_resource type="Resource" uid="uid://knju2e0dijj0" path="res://Assets/Dialogues/NPCs/Mootoinette-Recruitment.dialogue" id="3_6riel"]
 [ext_resource type="PackedScene" uid="uid://ckuixmfxatdt0" path="res://Scenes/General/Overhead-Popup/InteractPrompt.tscn" id="3_k0ke0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8slat"]
@@ -66,7 +68,9 @@ size = Vector2(32, 39)
 
 [node name="Mootoinette" type="CharacterBody2D"]
 z_index = 1
-script = ExtResource("1_8slat")
+script = ExtResource("1_k0ke0")
+CharacterData = ExtResource("2_y2jfi")
+_recruitmentDialogue = ExtResource("3_6riel")
 AnimatedSpritePath = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://0djpspflyu0s"]
+[gd_scene load_steps=14 format=3 uid="uid://0djpspflyu0s"]
 
 [ext_resource type="Texture2D" uid="uid://cdkagjwkawx1a" path="res://Assets/Characters/Moomoo-Overworld/MooMoo-Overworld.png" id="1_0m0f6"]
-[ext_resource type="Script" uid="uid://bbruslgc7rar3" path="res://Scripts/Characters/Base Classes/NPCCharacter.cs" id="1_jqn7x"]
+[ext_resource type="Script" uid="uid://vcbop8llpcdh" path="res://Scripts/Characters/Moomoo.cs" id="1_xoabx"]
+[ext_resource type="Resource" uid="uid://n5be65dskey" path="res://Assets/Dialogues/Bosses/Moomoo-Boss-Dialogue.dialogue" id="2_2vrne"]
+[ext_resource type="Resource" uid="uid://dvform022y1pc" path="res://Scripts/Resources/Characters/Moomoo.tres" id="2_bfknf"]
+[ext_resource type="PackedScene" uid="uid://ckuixmfxatdt0" path="res://Scenes/General/Overhead-Popup/InteractPrompt.tscn" id="5_bfknf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqn7x"]
 atlas = ExtResource("1_0m0f6")
@@ -60,9 +63,14 @@ size = Vector2(20, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_jqn7x"]
 radius = 88.0909
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfknf"]
+size = Vector2(36, 39)
+
 [node name="Moomoo" type="CharacterBody2D"]
 z_index = 1
-script = ExtResource("1_jqn7x")
+script = ExtResource("1_xoabx")
+CharacterData = ExtResource("2_bfknf")
+_bossDialogue = ExtResource("2_2vrne")
 AnimatedSpritePath = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -78,3 +86,16 @@ shape = SubResource("RectangleShape2D_higv4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FaceDetectionRadius"]
 shape = SubResource("CircleShape2D_jqn7x")
 debug_color = Color(0.92549, 0.0156863, 0, 0.14902)
+
+[node name="InteractionBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_bfknf")
+debug_color = Color(1, 0.271953, 0.331925, 0.42)
+
+[node name="InteractPrompt" parent="." instance=ExtResource("5_bfknf")]
+offset_left = -61.0
+offset_top = -56.0
+offset_right = -61.0
+offset_bottom = -56.0

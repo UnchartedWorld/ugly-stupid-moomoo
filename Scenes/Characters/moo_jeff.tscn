@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgyx1yjfflfkq"]
+[gd_scene load_steps=14 format=3 uid="uid://dgyx1yjfflfkq"]
 
-[ext_resource type="Script" uid="uid://bbruslgc7rar3" path="res://Scripts/Characters/Base Classes/NPCCharacter.cs" id="1_t0bs0"]
+[ext_resource type="Script" uid="uid://ch0vpxacxu6ab" path="res://Scripts/Characters/MooJeff.cs" id="1_v7087"]
 [ext_resource type="Texture2D" uid="uid://dkesk13u0sfai" path="res://Assets/Characters/MooJeff-Overworld/MooJeff-Overworld.png" id="1_yfix3"]
+[ext_resource type="Resource" uid="uid://y3k07qh5qd3c" path="res://Scripts/Resources/Characters/MooJeff.tres" id="2_i7ky3"]
+[ext_resource type="Resource" uid="uid://o3mehxu8rfv3" path="res://Assets/Dialogues/NPCs/MooJeff-Recruitment.dialogue" id="3_r4xyx"]
 [ext_resource type="PackedScene" uid="uid://ckuixmfxatdt0" path="res://Scenes/General/Overhead-Popup/InteractPrompt.tscn" id="3_v7087"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0bs0"]
@@ -66,7 +68,9 @@ size = Vector2(32, 39)
 
 [node name="MooJeff" type="CharacterBody2D"]
 z_index = 1
-script = ExtResource("1_t0bs0")
+script = ExtResource("1_v7087")
+CharacterData = ExtResource("2_i7ky3")
+_recruitmentDialogue = ExtResource("3_r4xyx")
 AnimatedSpritePath = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
