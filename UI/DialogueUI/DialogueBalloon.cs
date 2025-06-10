@@ -8,6 +8,9 @@ namespace DialogueManagerRuntime
     [Export] public string NextAction = "ui_accept";
     [Export] public string SkipAction = "ui_cancel";
 
+    [Export] private AudioStreamPlayer _streamPlayer;
+    [Export] private DialogueAudioManager _audioManager;
+    [Export] private TextureRect _dialogueDoneIndicator;
 
     Control balloon;
     RichTextLabel characterLabel;
@@ -17,7 +20,21 @@ namespace DialogueManagerRuntime
 
     Resource resource;
     Array<Variant> temporaryGameStates = [];
-    bool isWaitingForInput = false;
+
+    private Callable _spokeCallable;
+
+    private bool _isWaitingForInput;
+    
+    bool IsWaitingForInput
+    {
+      get => _isWaitingForInput;
+      set
+      {
+        _isWaitingForInput = value;
+        _dialogueDoneIndicator.Visible = value;
+      }
+    }
+    
     bool willHideBalloon = false;
 
     DialogueLine dialogueLine;
@@ -48,6 +65,9 @@ namespace DialogueManagerRuntime
       responsesMenu = GetNode<VBoxContainer>("%ResponsesMenu");
       portrait = GetNode<TextureRect>("%CharacterPortrait");
 
+      _audioManager.SetAudioPlayer(_streamPlayer);
+      _dialogueDoneIndicator.Hide();
+
       balloon.Hide();
 
       balloon.GuiInput += (@event) =>
@@ -64,7 +84,7 @@ namespace DialogueManagerRuntime
           }
         }
 
-        if (!isWaitingForInput) return;
+        if (!IsWaitingForInput) return;
         if (dialogueLine.Responses.Count > 0) return;
 
         GetViewport().SetInputAsHandled();
@@ -101,12 +121,20 @@ namespace DialogueManagerRuntime
       AddChild(MutationCooldown);
 
       DialogueManager.Mutated += OnMutated;
+
+      _spokeCallable = Callable.From((string letter, int index, float speed) =>
+      {
+        OnLetterSpoken(letter, index, speed);
+      });
+
+      dialogueLabel.Connect("spoke", _spokeCallable);
     }
 
 
     public override void _ExitTree()
     {
       DialogueManager.Mutated -= OnMutated;
+      dialogueLabel.Disconnect("spoke", _spokeCallable);
     }
 
 
@@ -135,7 +163,7 @@ namespace DialogueManagerRuntime
     public async void Start(Resource dialogueResource, string title, Array<Variant> extraGameStates = null)
     {
       temporaryGameStates = new Array<Variant> { this } + (extraGameStates ?? new Array<Variant>());
-      isWaitingForInput = false;
+      IsWaitingForInput = false;
       resource = dialogueResource;
 
       DialogueLine = await DialogueManager.GetNextDialogueLine(resource, title, temporaryGameStates);
@@ -155,7 +183,7 @@ namespace DialogueManagerRuntime
     {
       MutationCooldown.Stop();
 
-      isWaitingForInput = false;
+      IsWaitingForInput = false;
       balloon.FocusMode = Control.FocusModeEnum.All;
       balloon.GrabFocus();
 
@@ -214,7 +242,9 @@ namespace DialogueManagerRuntime
       }
       else
       {
-        isWaitingForInput = true;
+        IsWaitingForInput = true;
+        _dialogueDoneIndicator.Visible = true;
+
         balloon.FocusMode = Control.FocusModeEnum.All;
         balloon.GrabFocus();
       }
@@ -229,9 +259,14 @@ namespace DialogueManagerRuntime
 
     private void OnMutated(Dictionary _mutation)
     {
-      isWaitingForInput = false;
+      IsWaitingForInput = false;
       willHideBalloon = true;
       MutationCooldown.Start(0.1f);
+    }
+
+    private void OnLetterSpoken(string letter, int letterIndex, float speed)
+    {
+      _audioManager.PlayLetter(characterLabel.Text, letter, letterIndex, speed);
     }
 
 

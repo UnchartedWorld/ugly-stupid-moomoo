@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dqdhj3d0najcf"]
+[gd_scene load_steps=27 format=3 uid="uid://dqdhj3d0najcf"]
 
 [ext_resource type="Script" uid="uid://bskj0ilgih5hr" path="res://UI/DialogueUI/DialogueBalloon.cs" id="1_67l2p"]
 [ext_resource type="Texture2D" uid="uid://3djd8r4yqsf2" path="res://Assets/UI/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png" id="2_1v7jy"]
@@ -9,6 +9,13 @@
 [ext_resource type="FontFile" uid="uid://c11usub4pa44f" path="res://Assets/Fonts/Grenze-Italic.ttf" id="5_6a3kj"]
 [ext_resource type="FontFile" uid="uid://bwdr2kuhq7crg" path="res://Assets/Fonts/Grenze-BoldItalic.ttf" id="6_lksfd"]
 [ext_resource type="FontFile" uid="uid://rvdmfkj0eo8" path="res://Assets/Fonts/Grenze-Bold.ttf" id="7_bu3hk"]
+[ext_resource type="Texture2D" uid="uid://c27kv5b0crej3" path="res://Assets/UI/kenney_game-icons/PNG/White/2x/down.png" id="9_jsbaf"]
+[ext_resource type="AudioStream" uid="uid://be2ul87vuegys" path="res://Assets/Audio/female_light_3.ogg" id="10_lksfd"]
+[ext_resource type="Script" uid="uid://cod1rsn3lwus2" path="res://UI/DialogueUI/DialogueAudioManager.cs" id="11_bu3hk"]
+[ext_resource type="Resource" uid="uid://curkcl6vd3xgd" path="res://Scripts/Resources/Audio/Linh.tres" id="12_oxdvo"]
+[ext_resource type="Resource" uid="uid://dndn22atnvk8l" path="res://Scripts/Resources/Audio/Mootoinette.tres" id="13_jsbaf"]
+[ext_resource type="Resource" uid="uid://do7usc5w5gx7d" path="res://Scripts/Resources/Audio/MooJeff.tres" id="14_k6846"]
+[ext_resource type="Resource" uid="uid://5l36ftv56bvf" path="res://Scripts/Resources/Audio/Moomoo.tres" id="15_udkox"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -85,9 +92,47 @@ texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 
-[node name="Balloon" type="CanvasLayer"]
+[sub_resource type="Animation" id="Animation_k6846"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_jsbaf"]
+resource_name = "indication"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(125, -0.25, 0, 0.25, 0, 119, -0.25, 0, 0.25, 0, 125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_udkox"]
+_data = {
+&"RESET": SubResource("Animation_k6846"),
+&"indication": SubResource("Animation_jsbaf")
+}
+
+[node name="Balloon" type="CanvasLayer" node_paths=PackedStringArray("_streamPlayer", "_audioManager", "_dialogueDoneIndicator")]
 layer = 100
 script = ExtResource("1_67l2p")
+_streamPlayer = NodePath("TalkingSounds")
+_audioManager = NodePath("DialogueAudioManagerNode")
+_dialogueDoneIndicator = NodePath("Balloon/Panel/DialogueEndedIndicator")
 
 [node name="Balloon" type="Control" parent="."]
 unique_name_in_owner = true
@@ -168,6 +213,30 @@ theme_override_fonts/italics_font = ExtResource("5_6a3kj")
 theme_override_fonts/bold_italics_font = ExtResource("6_lksfd")
 theme_override_fonts/bold_font = ExtResource("7_bu3hk")
 text = "Dialogue..."
+seconds_per_step = 0.06
+pause_at_characters = ".?!,"
+
+[node name="DialogueEndedIndicator" type="TextureRect" parent="Balloon/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -39.0
+offset_right = -5.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("9_jsbaf")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/Panel/DialogueEndedIndicator"]
+libraries = {
+&"": SubResource("AnimationLibrary_udkox")
+}
+autoplay = "indication"
 
 [node name="Responses" type="MarginContainer" parent="Balloon"]
 layout_mode = 1
@@ -194,6 +263,14 @@ response_template = NodePath("ResponseExample")
 [node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
 layout_mode = 2
 text = "Response example"
+
+[node name="TalkingSounds" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_lksfd")
+
+[node name="DialogueAudioManagerNode" type="Node2D" parent="."]
+script = ExtResource("11_bu3hk")
+AudioResources = Array[Object]([ExtResource("12_oxdvo"), ExtResource("13_jsbaf"), ExtResource("14_k6846"), ExtResource("15_udkox")])
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
